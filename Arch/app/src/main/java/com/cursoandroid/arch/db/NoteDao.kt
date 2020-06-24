@@ -1,4 +1,4 @@
-package com.cursoandroid.arch
+package com.cursoandroid.arch.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

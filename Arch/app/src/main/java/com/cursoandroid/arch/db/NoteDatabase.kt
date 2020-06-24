@@ -1,4 +1,4 @@
-package com.cursoandroid.arch
+package com.cursoandroid.arch.db
 
 import android.content.Context
 import android.os.AsyncTask
@@ -40,7 +40,9 @@ abstract class NoteDatabase : RoomDatabase() {
         private val roomCallback = object : RoomDatabase.Callback() {
             override fun onCreate(db: SupportSQLiteDatabase) {
                 super.onCreate(db)
-                PopulateDbAsyncTask(instance).execute()
+                PopulateDbAsyncTask(
+                    instance
+                ).execute()
             }
         }
     }
@@ -49,10 +51,38 @@ abstract class NoteDatabase : RoomDatabase() {
         private val noteDao = db?.noteDao
 
         override fun doInBackground(vararg params: Unit?) {
-            noteDao?.insert(Note(1, "title 1", "descrip 1", 1))
-            noteDao?.insert(Note(2, "title 2", "descrip 2", 2))
-            noteDao?.insert(Note(3, "title 3", "descrip 3", 3))
-            noteDao?.insert(Note(4, "title 4", "descrip 4", 4))
+            noteDao?.insert(
+                Note(
+                    1,
+                    "title 1",
+                    "descrip 1",
+                    1
+                )
+            )
+            noteDao?.insert(
+                Note(
+                    2,
+                    "title 2",
+                    "descrip 2",
+                    2
+                )
+            )
+            noteDao?.insert(
+                Note(
+                    3,
+                    "title 3",
+                    "descrip 3",
+                    3
+                )
+            )
+            noteDao?.insert(
+                Note(
+                    4,
+                    "title 4",
+                    "descrip 4",
+                    4
+                )
+            )
         }
 
     }

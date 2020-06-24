@@ -1,8 +1,11 @@
-package com.cursoandroid.arch
+package com.cursoandroid.arch.repository
 
 import android.app.Application
 import android.os.AsyncTask
 import androidx.lifecycle.LiveData
+import com.cursoandroid.arch.db.Note
+import com.cursoandroid.arch.db.NoteDao
+import com.cursoandroid.arch.db.NoteDatabase
 import kotlinx.coroutines.InternalCoroutinesApi
 
 @InternalCoroutinesApi
@@ -22,7 +25,9 @@ class NoteRepository(
     }
 
     fun insert(note: Note) {
-        val insertNoteAsyncTask = InsertNoteAsyncTask(noteDao).execute(note)
+        val insertNoteAsyncTask = InsertNoteAsyncTask(
+            noteDao
+        ).execute(note)
     }
 
     fun deleteAllNotes() {

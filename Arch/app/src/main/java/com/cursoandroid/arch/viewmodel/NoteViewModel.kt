@@ -1,8 +1,10 @@
-package com.cursoandroid.arch
+package com.cursoandroid.arch.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import com.cursoandroid.arch.db.Note
+import com.cursoandroid.arch.repository.NoteRepository
 import kotlinx.coroutines.InternalCoroutinesApi
 
 @InternalCoroutinesApi
