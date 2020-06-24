@@ -1,10 +1,12 @@
-package com.cursoandroid.arch
+package com.cursoandroid.arch.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.cursoandroid.arch.R
+import com.cursoandroid.arch.db.Note
 
 class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
     private var notes: List<Note> = ArrayList()
