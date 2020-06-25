@@ -13,6 +13,7 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
 
     inner class NoteHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var textViewTitle: TextView = itemView.findViewById(R.id.text_view_title)
+        var textViewDescription: TextView = itemView.findViewById(R.id.text_view_description)
 
     }
 
@@ -34,6 +35,6 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
         val currentNote = notes[position]
         holder.textViewTitle.text = currentNote.title
-        holder.textViewTitle.text = currentNote.description
+        holder.textViewDescription.text = currentNote.description
     }
 }
