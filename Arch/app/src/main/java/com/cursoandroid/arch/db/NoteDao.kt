@@ -14,12 +14,14 @@ interface NoteDao {
     @Delete
     fun delete(note: Note)
 
-    @Query("SELECT * from note_table WHERE noteId = :key")
+    @Query("SELECT * from note_table WHERE id = :key")
     fun get(key: Long): Note?
 
     @Query("DELETE FROM note_table")
     fun deleteAllNotes()
 
-    @Query("SELECT * FROM note_table ORDER BY priority DESC")
+    @Query("SELECT * FROM note_table")
     fun getAllNotes(): LiveData<List<Note>>
+//    @Query("SELECT * FROM note_table ORDER BY priority DESC")
+//    fun getAllNotes(): LiveData<List<Note>>
 }
