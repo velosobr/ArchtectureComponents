@@ -9,17 +9,13 @@ import com.cursoandroid.arch.db.NoteDatabase
 import kotlinx.coroutines.InternalCoroutinesApi
 
 @InternalCoroutinesApi
-class NoteRepository(
-    application: Application
-) {
+class NoteRepository {
     private var allNotes: LiveData<List<Note>>
     private var noteDao: NoteDao?
 
 
     init {
-        val db = NoteDatabase.getInstance(
-            application.applicationContext
-        )!!
+        val db = NoteDatabase.getInstance()!!
         noteDao = db.noteDao
         allNotes = noteDao!!.getAllNotes()
     }

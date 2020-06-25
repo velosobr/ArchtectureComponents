@@ -9,15 +9,17 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.internal.synchronized
 
-@Database(entities = [Note::class], version = 1, exportSchema = false)
+@Database(entities = [Note::class], version = 3, exportSchema = false)
 abstract class NoteDatabase : RoomDatabase() {
     abstract val noteDao: NoteDao
 
     companion object {
         private var instance: NoteDatabase? = null
 
+        fun getInstance() = instance
+
         @InternalCoroutinesApi
-        fun getInstance(context: Context): NoteDatabase {
+        fun init(context: Context): NoteDatabase {
             if (instance == null) {
                 synchronized(NoteDatabase::class.java) {
                     instance = Room.databaseBuilder(
@@ -53,36 +55,23 @@ abstract class NoteDatabase : RoomDatabase() {
         override fun doInBackground(vararg params: Unit?) {
             noteDao?.insert(
                 Note(
-                    1,
                     "title 1",
-                    "descrip 1",
-                    1
+                    "descrip 1"
                 )
             )
             noteDao?.insert(
                 Note(
-                    2,
                     "title 2",
-                    "descrip 2",
-                    2
+                    "descrip 2"
                 )
             )
             noteDao?.insert(
                 Note(
-                    3,
                     "title 3",
-                    "descrip 3",
-                    3
+                    "descrip 3"
                 )
             )
-            noteDao?.insert(
-                Note(
-                    4,
-                    "title 4",
-                    "descrip 4",
-                    4
-                )
-            )
+
         }
 
     }
