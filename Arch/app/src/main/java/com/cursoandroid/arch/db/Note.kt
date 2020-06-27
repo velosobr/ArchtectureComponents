@@ -9,9 +9,9 @@ data class Note(
     @ColumnInfo(name = "title")
     val title: String?,
     @ColumnInfo(name = "description")
-    val description: String?
-//    @ColumnInfo(name = "priority")
-//    val priority: Int? = 0
+    val description: String?,
+    @ColumnInfo(name = "priority")
+    val priority: Int? = 0
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

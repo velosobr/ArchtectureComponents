@@ -81,7 +81,8 @@ class MainActivity : AppCompatActivity() {
         if(requestCode == ADD_NOTE_REQUEST && resultCode == Activity.RESULT_OK){
             val newNote = Note(
                 data!!.getStringExtra(AddNoteActivity.EXTRA_TITLE),
-                data.getStringExtra(AddNoteActivity.EXTRA_DESCRIPTION)
+                data.getStringExtra(AddNoteActivity.EXTRA_DESCRIPTION),
+                data.getIntExtra(AddNoteActivity.EXTRA_PRIORITY, 1)
             )
             noteViewModel.insert(newNote)
 
