@@ -11,8 +11,7 @@ import kotlinx.coroutines.InternalCoroutinesApi
 @InternalCoroutinesApi
 class NoteViewModel : ViewModel() {
 
-    private var repository: NoteRepository =
-        NoteRepository()
+    private var repository: NoteRepository = NoteRepository()
     private var allNotes: LiveData<List<Note>> = repository.getAllNotes()
 
     fun insert(note: Note) {
